@@ -1,0 +1,21 @@
+{
+  "id": "SEUM-ΔIDEO",
+  "status": "LAGGING",
+  "name": "Ellie",
+  "title": "Alien",
+  "pronouns": "iel",
+  "sign": "Cancer ♋",
+  "age": "29",
+  "mass": "inconnue",
+  "origin": "Tatami Galaxy",
+  "doctrine": "Une chose à la fois ",
+  "enemy": "Erreur 404",
+  "weapon": "Ordinateurs",
+  "acts": "",
+  "quote": "Coucou les amis",
+  "stats": {
+    "seum": 100,
+    "foi": 0,
+    "chaos": 88
+  }
+}
