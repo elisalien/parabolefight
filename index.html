@@ -166,9 +166,25 @@
   }
   .portrait.tall{
     aspect-ratio: 32 / 45;
-    max-width:400px;
-    padding:20px;
+    max-width:440px;
+    padding:18px;
+    /* 2 colonnes : header en haut pleine largeur, info + stats à gauche,
+       photo à droite sur toute la hauteur.
+       Le grid remplace le flex-column — p-body passe en display:contents
+       pour que ses enfants participent directement au grid du portrait. */
+    display:grid;
+    grid-template-columns: minmax(0, 56%) minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "info   avatar"
+      "stats  avatar";
+    column-gap:12px;
+    row-gap:8px;
   }
+  .portrait.tall .p-header{grid-area:header}
+  .portrait.tall .p-body{display:contents}
+  .portrait.tall .p-stats{grid-area:stats;min-width:0}
 
   /* ========= WALL MODE ========= */
   .wall{
@@ -358,8 +374,10 @@
     gap:14px;
     align-items:stretch;
   }
+  /* En non-tall (16:9) p-body reste flex row ; en tall le display:contents
+     est appliqué plus haut, donc cette règle ne tape que le mode 16:9
+     résiduel au cas où — garde-fou sans effet en tall. */
   .portrait.tall .p-body{
-    flex-direction:column;     /* 32:45 → vertical stack */
     gap:12px;
   }
 
@@ -377,13 +395,17 @@
     width:auto;
   }
   .portrait.tall .p-avatar{
-    /* In column mode fill width then square */
+    /* Colonne droite du grid : cadre vertical qui remplit toute la hauteur */
+    grid-area:avatar;
     width:100%;
-    height:auto;
-    aspect-ratio: 16 / 10;     /* slightly wider banner in tall mode */
+    height:100%;
+    aspect-ratio:auto;
+    align-self:stretch;
+    justify-self:stretch;
+    min-height:0;
+    min-width:0;
   }
   .p-avatar svg{width:58%;height:auto;max-height:78%;opacity:.9}
-  .portrait.tall .p-avatar svg{width:42%;max-height:80%}
   .avatar-scan{
     position:absolute;inset:0;
     background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,63,112,0.05) 3px,rgba(255,63,112,0.05) 4px);
@@ -442,7 +464,12 @@
     letter-spacing:-0.02em;
     font-size: clamp(30px, 5vw, 44px);
   }
-  .portrait.tall .p-name{font-size: clamp(34px, 7vw, 48px)}
+  .portrait.tall .p-name{font-size: clamp(30px, 5vw, 42px)}
+  .portrait.tall .p-info{
+    grid-area:info;
+    min-height:0;
+    min-width:0;
+  }
   .p-pronouns{
     font-size:11.5px;color:var(--mute);
     font-style:italic;
@@ -607,15 +634,55 @@
     gap:clamp(10px, 1.2vw, 20px);
   }
   body.fullscreen-mode .portrait.tall{
-    aspect-ratio:16 / 9;
+    /* Portrait 32:45 qui remplit la hauteur du viewport, en grille 2 colonnes.
+       Colonne gauche : header + info + stats. Colonne droite : photo. */
+    display:grid;
+    grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "info   avatar"
+      "stats  avatar";
+    column-gap:clamp(14px, 2vw, 32px);
+    row-gap:clamp(8px, 1vw, 16px);
+    aspect-ratio:32 / 45;
     max-width:none;
-    width:min(100vw, calc(100vh * 16 / 9));
-    height:min(100vh, calc(100vw * 9 / 16));
+    width:min(100vw, calc(100vh * 32 / 45));
+    height:min(100vh, calc(100vw * 45 / 32));
+    padding:clamp(20px, 2.2vw, 44px);
   }
-  /* basculer tall → row en fullscreen pour garder le layout paysage */
-  body.fullscreen-mode .portrait.tall .p-body{flex-direction:row;gap:14px}
-  body.fullscreen-mode .portrait.tall .p-avatar{width:auto;height:100%;aspect-ratio:1/1}
-  body.fullscreen-mode .portrait.tall .quote{opacity:0;max-height:0;margin-top:0}
+  body.fullscreen-mode .portrait.tall .p-header{grid-area:header}
+  /* p-body n'est plus un conteneur flex : ses enfants participent directement
+     au grid du portrait via display:contents */
+  body.fullscreen-mode .portrait.tall .p-body{display:contents}
+  body.fullscreen-mode .portrait.tall .p-avatar{
+    grid-area:avatar;
+    width:100%;
+    height:100%;
+    aspect-ratio:auto;
+    min-height:0;
+    min-width:0;
+    align-self:stretch;
+    justify-self:stretch;
+  }
+  body.fullscreen-mode .portrait.tall .p-info{
+    grid-area:info;
+    min-height:0;
+    min-width:0;
+    overflow:hidden;
+    gap:4px;
+  }
+  body.fullscreen-mode .portrait.tall .p-stats{
+    grid-area:stats;
+    min-width:0;
+  }
+  /* info-grid revient à 2 colonnes pour afficher toutes les lignes */
+  body.fullscreen-mode .portrait.tall .info-grid{
+    grid-template-columns:auto 1fr;
+    gap:5px 14px;
+    margin-top:6px;
+  }
+  /* citation conservée en fullscreen tall (la colonne info a la place) */
 
   /* Agrandir le texte proportionnellement en fullscreen */
   body.fullscreen-mode .portrait .p-name{font-size:clamp(40px, 6vw, 88px)}
@@ -815,11 +882,6 @@
           <div class="avatar-corner bl"></div>
           <div class="avatar-corner br"></div>
           <div class="avatar-rings"><div></div><div></div><div></div></div>
-          <svg viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="50" cy="38" r="22" fill="none" stroke="currentColor" stroke-width="1.2" style="color:var(--pink)" opacity=".85"/>
-            <path d="M 14 130 Q 14 70 50 70 Q 86 70 86 130" fill="none" stroke="currentColor" stroke-width="1.2" style="color:var(--pink)" opacity=".85"/>
-            <line x1="0" y1="95" x2="100" y2="95" stroke="currentColor" stroke-width="0.5" style="color:var(--pink)" opacity=".25"/>
-          </svg>
           <div class="avatar-dot d1"></div>
           <div class="avatar-dot d2"></div>
           <div class="avatar-dot d3"></div>
