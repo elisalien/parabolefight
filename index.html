@@ -29,7 +29,7 @@
     background:radial-gradient(ellipse at 20% 10%, #1a0d26 0%, var(--bg) 60%);
     color:var(--ink);
     font-family:'Space Grotesk',system-ui,sans-serif;
-    font-size:14px;
+    font-size:16px;
     min-height:100vh;
     padding:18px;
   }
@@ -56,31 +56,31 @@
   }
   .form-panel h2{
     font-family:'Share Tech Mono',monospace;
-    font-size:11px;
+    font-size:13px;
     letter-spacing:0.25em;
     color:var(--mute);
     margin-bottom:14px;
     padding-bottom:10px;
     border-bottom:1px solid var(--line);
   }
-  .field{margin-bottom:10px}
+  .field{margin-bottom:12px}
   .field label{
     display:block;
     font-family:'Share Tech Mono',monospace;
-    font-size:9.5px;
+    font-size:11px;
     letter-spacing:0.22em;
     color:var(--mute);
     text-transform:uppercase;
-    margin-bottom:4px;
+    margin-bottom:5px;
   }
   .field input, .field textarea, .field select{
     width:100%;
     background:rgba(0,0,0,0.35);
     border:1px solid var(--line);
     color:var(--ink);
-    padding:7px 9px;
+    padding:9px 11px;
     font-family:'Space Grotesk',sans-serif;
-    font-size:13px;
+    font-size:15px;
     border-radius:2px;
     transition:border-color .2s, box-shadow .2s;
   }
@@ -93,10 +93,10 @@
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
   .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 
-  .stat-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-  .stat-row label{flex:0 0 56px;margin:0}
+  .stat-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .stat-row label{flex:0 0 64px;margin:0}
   .stat-row input[type=range]{flex:1;accent-color:var(--pink)}
-  .stat-row .val{flex:0 0 34px;text-align:right;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--pink)}
+  .stat-row .val{flex:0 0 40px;text-align:right;font-family:'Share Tech Mono',monospace;font-size:14px;color:var(--pink)}
 
   .actions{
     display:flex;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
@@ -106,9 +106,9 @@
     background:transparent;
     border:1px solid var(--ink);
     color:var(--ink);
-    padding:10px;
+    padding:11px;
     font-family:'Share Tech Mono',monospace;
-    font-size:11px;
+    font-size:13px;
     letter-spacing:0.18em;
     cursor:pointer;
     transition:all .2s;
@@ -132,7 +132,7 @@
     justify-content:space-between;
     align-items:center;
     font-family:'Share Tech Mono',monospace;
-    font-size:10px;
+    font-size:13px;
     letter-spacing:0.22em;
     color:var(--mute);
     text-transform:uppercase;
@@ -183,11 +183,11 @@
     border:1px solid rgba(245,232,255,0.12);
     background:rgba(255,255,255,0.015);
     font-family:'Share Tech Mono',monospace;
-    font-size:10px;
+    font-size:12px;
     letter-spacing:.18em;
     color:var(--mute);
     display:flex;align-items:flex-start;justify-content:flex-start;
-    padding:4px 6px;
+    padding:5px 7px;
     pointer-events:none;
     transition: border-color .3s, background .3s;
   }
@@ -263,20 +263,20 @@
     min-height:0;
   }
   .wall-portrait:not(.expanded) .p-stats{grid-area:stats;border-top:none;padding-top:6px}
-  .wall-portrait:not(.expanded) .portrait .p-header{font-size:9px;letter-spacing:.18em}
-  .wall-portrait:not(.expanded) .portrait .badge{font-size:8px;padding:2px 6px}
-  .wall-portrait:not(.expanded) .portrait .p-name{font-size:clamp(22px,5.5vw,42px);line-height:.9}
-  .wall-portrait:not(.expanded) .portrait .p-title{font-size:9.5px}
-  .wall-portrait:not(.expanded) .portrait .p-pronouns{font-size:10px}
+  .wall-portrait:not(.expanded) .portrait .p-header{font-size:12px;letter-spacing:.18em}
+  .wall-portrait:not(.expanded) .portrait .badge{font-size:11px;padding:4px 10px}
+  .wall-portrait:not(.expanded) .portrait .p-name{font-size:clamp(36px,8vw,68px);line-height:.9}
+  .wall-portrait:not(.expanded) .portrait .p-title{font-size:14px}
+  .wall-portrait:not(.expanded) .portrait .p-pronouns{font-size:15px}
   .wall-portrait:not(.expanded) .portrait .info-grid{display:none}
-  .wall-portrait:not(.expanded) .portrait .sign-chip{font-size:8px;padding:3px 6px}
-  .wall-portrait:not(.expanded) .portrait .stat{grid-template-columns:42px 1fr 32px;gap:8px}
-  .wall-portrait:not(.expanded) .portrait .stat-name{font-size:8.5px}
-  .wall-portrait:not(.expanded) .portrait .stat-val{font-size:10px}
+  .wall-portrait:not(.expanded) .portrait .sign-chip{font-size:12px;padding:4px 10px}
+  .wall-portrait:not(.expanded) .portrait .stat{grid-template-columns:64px 1fr 48px;gap:12px}
+  .wall-portrait:not(.expanded) .portrait .stat-name{font-size:13px}
+  .wall-portrait:not(.expanded) .portrait .stat-val{font-size:15px}
 
   .wall-caption{
     font-family:'Share Tech Mono',monospace;
-    font-size:10px;letter-spacing:.2em;color:var(--mute);
+    font-size:13px;letter-spacing:.2em;color:var(--mute);
     text-transform:uppercase;text-align:center;
   }
   .wall-caption .start-name{color:var(--pink)}
@@ -332,19 +332,18 @@
   /* ========= HEADER ========= */
   .p-header{
     flex-shrink:0;
-    display:flex;align-items:center;justify-content:space-between;
-    font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.22em;
+    display:flex;align-items:center;justify-content:flex-end;
+    font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:0.22em;
     color:var(--mute);text-transform:uppercase;
-    padding-bottom:8px;border-bottom:1px solid var(--line);
+    padding-bottom:10px;border-bottom:1px solid var(--line);
   }
-  .p-header .id strong{color:var(--ink);font-weight:400}
   .badge{
-    display:inline-flex;align-items:center;gap:6px;
-    padding:4px 10px;
+    display:inline-flex;align-items:center;gap:7px;
+    padding:6px 14px;
     background:rgba(65,214,155,0.12);
     border:1px solid var(--green);
     color:var(--green);
-    font-size:9.5px;
+    font-size:14px;
     border-radius:20px;
     white-space:nowrap;
   }
@@ -416,10 +415,10 @@
   .avatar-corner.bl{bottom:6px;left:6px;border-right:none;border-top:none}
   .avatar-corner.br{bottom:6px;right:6px;border-left:none;border-top:none}
   .sign-chip{
-    position:absolute;bottom:8px;right:8px;
+    position:absolute;bottom:10px;right:10px;
     background:var(--violet);color:#fff;
-    font-family:'Share Tech Mono',monospace;font-size:10px;
-    padding:4px 8px;letter-spacing:0.1em;
+    font-family:'Share Tech Mono',monospace;font-size:16px;
+    padding:6px 12px;letter-spacing:0.1em;
     display:flex;align-items:center;gap:6px;
     white-space:nowrap;
   }
@@ -432,7 +431,7 @@
   }
   .p-title{
     font-family:'Share Tech Mono',monospace;
-    font-size:10.5px;letter-spacing:0.2em;
+    font-size:18px;letter-spacing:0.2em;
     color:var(--pink);text-transform:uppercase;
   }
   .p-name{
@@ -440,46 +439,46 @@
     line-height:.95;
     color:var(--ink);
     letter-spacing:-0.02em;
-    font-size: clamp(30px, 5vw, 44px);
+    font-size: clamp(56px, 9vw, 96px);
   }
-  .portrait.tall .p-name{font-size: clamp(34px, 7vw, 48px)}
+  .portrait.tall .p-name{font-size: clamp(64px, 11vw, 112px)}
   .p-pronouns{
-    font-size:11.5px;color:var(--mute);
+    font-size:19px;color:var(--mute);
     font-style:italic;
-    margin-bottom:2px;
+    margin-bottom:6px;
   }
 
   /* Info grid — reveal smoothly between modes */
   .info-grid{
     display:grid;
-    grid-template-columns:auto 1fr auto 1fr; /* 16:9 → 4 cols compact */
-    gap:4px 10px;
-    font-size:11px;
-    margin-top:2px;
-    /* No transition on grid-template-columns (it snaps) */
+    grid-template-columns:auto 1fr;
+    gap:10px 18px;
+    font-size:20px;
+    margin-top:6px;
   }
   .portrait.tall .info-grid{
     grid-template-columns:auto 1fr;
-    gap:5px 12px;
+    gap:10px 18px;
   }
   .info-grid dt{
     font-family:'Share Tech Mono',monospace;
-    font-size:9px;letter-spacing:0.16em;
+    font-size:14px;letter-spacing:0.16em;
     color:var(--mute);text-transform:uppercase;
-    padding-top:2px;
+    padding-top:5px;
     white-space:nowrap;
   }
-  .info-grid dd{color:var(--ink);font-size:11.5px;line-height:1.25}
+  .info-grid dd{color:var(--ink);font-size:20px;line-height:1.3}
   .info-grid dd.accent{color:var(--pink)}
 
   /* Quote — only in tall mode */
   .quote{
     font-family:'DM Serif Display',serif;
     font-style:italic;
-    font-size:13px;
+    font-size:22px;
+    line-height:1.35;
     color:var(--ink);
-    border-left:2px solid var(--pink);
-    padding-left:10px;
+    border-left:3px solid var(--pink);
+    padding-left:14px;
     opacity:0;
     max-height:0;
     overflow:hidden;
@@ -499,18 +498,18 @@
   }
   .stat{
     display:grid;
-    grid-template-columns: 54px 1fr 40px;
+    grid-template-columns: 84px 1fr 60px;
     align-items:center;
-    gap:10px;
+    gap:14px;
   }
   .stat-name{
     font-family:'Share Tech Mono',monospace;
-    font-size:9.5px;letter-spacing:0.2em;
+    font-size:16px;letter-spacing:0.2em;
     color:var(--mute);
   }
   .stat-bar{
-    height:4px;background:rgba(255,63,112,0.1);
-    overflow:hidden;border-radius:2px;position:relative;
+    height:8px;background:rgba(255,63,112,0.1);
+    overflow:hidden;border-radius:4px;position:relative;
   }
   .stat-fill{
     height:100%;background:linear-gradient(90deg,var(--pink),var(--pink-soft));
@@ -519,7 +518,7 @@
   }
   .stat-val{
     font-family:'Share Tech Mono',monospace;
-    font-size:11.5px;
+    font-size:19px;
     color:var(--ink);
     text-align:right;
   }
@@ -550,7 +549,7 @@
 
   .hint{
     font-family:'Share Tech Mono',monospace;
-    font-size:10px;letter-spacing:0.2em;
+    font-size:13px;letter-spacing:0.2em;
     color:var(--mute);text-transform:uppercase;
     text-align:center;
   }
@@ -704,17 +703,6 @@
       </div>
     </div>
 
-    <div class="row2">
-      <div class="field">
-        <label>Âge</label>
-        <input id="f-age" value="34" />
-      </div>
-      <div class="field">
-        <label>Aura</label>
-        <input id="f-mass" value="dense · sacrée" />
-      </div>
-    </div>
-
     <div class="field">
       <label>Territoire</label>
       <input id="f-origin" value="Secteur 14 · banlieue orbitale" />
@@ -736,14 +724,13 @@
     </div>
 
     <div class="field">
-      <label>Actes</label>
-      <input id="f-acts" value="I · II · III" />
-    </div>
-
-    <div class="field">
       <label>Citation</label>
       <textarea id="f-quote">Si ton dieu me veut plus petite, c'est pas mon dieu.</textarea>
     </div>
+
+    <input type="hidden" id="f-age" value="34" />
+    <input type="hidden" id="f-mass" value="dense · sacrée" />
+    <input type="hidden" id="f-acts" value="I · II · III" />
 
     <h2 style="margin-top:14px">STATS</h2>
     <div class="stat-row">
@@ -791,7 +778,6 @@
 
     <div class="stage-top">
       <span>COORD · <span class="coord">14.6921°N · 17.4467°W</span></span>
-      <span>CYCLE § <span class="coord">07</span></span>
       <span class="live">LIAISON 7/7</span>
     </div>
 
@@ -803,7 +789,6 @@
 
       <!-- HEADER (always horizontal) -->
       <header class="p-header">
-        <span class="id">§ <strong id="v-id">SEUM-Δ01</strong></span>
         <span class="badge" id="v-status">EN SCÈNE</span>
       </header>
 
@@ -834,14 +819,8 @@
           <div class="p-pronouns" id="v-pronouns">iel · Scorpion</div>
 
           <dl class="info-grid">
-            <dt>Territoire</dt><dd id="v-origin">Secteur 14 · banlieue orbitale</dd>
-            <dt>Actes</dt><dd id="v-acts">I · II · III</dd>
-            <dt>Âge</dt><dd id="v-age">34</dd>
-            <dt>Aura</dt><dd id="v-mass">dense · sacrée</dd>
             <dt>Doctrine</dt><dd id="v-doctrine">Église de la Chair Libre</dd>
             <dt>Ennemi</dt><dd class="accent" id="v-enemy">Le Conseil Mince</dd>
-            <dt>Arme</dt><dd id="v-weapon">Prière qui fait trembler les murs</dd>
-            <dt>Statut</dt><dd class="accent" id="v-statut">EN SCÈNE</dd>
           </dl>
 
           <blockquote class="quote" id="v-quote">« Si ton dieu me veut plus petite, c'est pas mon dieu. »</blockquote>
@@ -888,13 +867,13 @@
     title:    ['f-title','v-title'],
     pronouns: ['f-pronouns', null],
     sign:     ['f-sign', null],
-    age:      ['f-age','v-age'],
-    mass:     ['f-mass','v-mass'],
+    age:      ['f-age', null],
+    mass:     ['f-mass', null],
     origin:   ['f-origin','v-origin'],
     doctrine: ['f-doctrine','v-doctrine'],
     enemy:    ['f-enemy','v-enemy'],
     weapon:   ['f-weapon','v-weapon'],
-    acts:     ['f-acts','v-acts'],
+    acts:     ['f-acts', null],
     quote:    ['f-quote', null],
   };
 
@@ -912,7 +891,6 @@
 
     const st = $('f-status').value;
     $('v-status').textContent = st;
-    $('v-statut').textContent = st;
 
     const q = $('f-quote').value.trim();
     $('v-quote').textContent = q ? `« ${q} »` : '';
